@@ -73,17 +73,5 @@ print_chr:
     int 0x10
     ret
 
-print_str:
-    mov ah, 0x0e
-print_loop:
-    mov al, [bx]
-    cmp al, 0
-    je end
-    int 0x10
-    inc bx
-    jmp print_loop
-end:
-    ret
-
 times 510-($-$$) db 0
 dw 0xaa55
